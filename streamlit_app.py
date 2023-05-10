@@ -42,3 +42,8 @@ my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
+
+# Add a form to allow users to enter new fruit names
+add_fruit = streamlit.text_input('Add a new fruit:', '')
+if add_fruit:
+    my_fruit_list.loc[add_fruit] = [0, 0, 0]
