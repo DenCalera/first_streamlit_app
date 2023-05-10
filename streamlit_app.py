@@ -51,11 +51,6 @@ def get_fruit_load_list():
     with my_cnx.cursor() as my_cur:
          my_cur.execute("select * from fruit_load_list")
          return my_cur.fetchall()
- 
-
-    
-#don't run anything past here while troubleshooting
-streamlit.stop()    
 
 #Add a button to load the fruit
 if streamlit.button('Get Fruit Load List'):
@@ -69,6 +64,11 @@ if add_fruit:
     my_fruit_list.loc[add_fruit] = [0, 0, 0]
 streamlit.write('Thanks for adding a fruit! ', add_fruit)
 
+ 
+
+    
+#don't run anything past here while troubleshooting
+streamlit.stop()    
 #This will not work correctly, but just go with it for now
 my_cur.execute("insert into fruit_load_list calues ('from streamlit')")
                
