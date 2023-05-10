@@ -31,9 +31,6 @@ def get_fruityvice_data(this_choice):
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
 
-#don't run anything past here while troubleshooting
-streamlit.stop()
-
 #New section to display fruityvice api response
 streamlit.header('Fruityvice Fruit Advice!')
 try:
@@ -46,6 +43,10 @@ try:
         
 except URLError as e:
     streamlit.error()
+
+    
+#don't run anything past here while troubleshooting
+streamlit.stop()    
 
 #import snowflake.connector
 streamlit.header("The fruit load list contains:")
