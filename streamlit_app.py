@@ -31,6 +31,9 @@ def get_fruityvice_data(this_choice):
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
 
+#don't run anything past here while troubleshooting
+streamlit.stop()
+
 #New section to display fruityvice api response
 streamlit.header('Fruityvice Fruit Advice!')
 try:
@@ -57,10 +60,6 @@ if streamlit.button('Get Fruit Load List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
-
-    
-#don't run anything past here while troubleshooting
-streamlit.stop()
 
 # Add a form to allow users to enter new fruit names
 add_fruit = streamlit.text_input('Add a new fruit:', '')
