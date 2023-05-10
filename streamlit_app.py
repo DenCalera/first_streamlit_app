@@ -47,3 +47,10 @@ streamlit.dataframe(my_data_rows)
 add_fruit = streamlit.text_input('Add a new fruit:', '')
 if add_fruit:
     my_fruit_list.loc[add_fruit] = [0, 0, 0]
+streamlit.write('Thanks for adding ', add_fruit)
+
+#This will not work correctly, but just go with it for now
+my_cur.execute("insert into fruit_load_list calues ('from streamlit')")
+               
+               
+               
