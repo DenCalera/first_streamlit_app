@@ -1,5 +1,3 @@
-i want to allow users to add new fruits using this codes
- 
 import streamlit
 
 streamlit.title('My Parents New Healthy Diner')
